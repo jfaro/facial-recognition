@@ -9,6 +9,7 @@ import face_recognition
 app = Flask(__name__)
 CORS(app)
 
+
 @app.route('/api', methods=['POST', 'GET'])
 def api():
     data = request.get_json()
@@ -21,7 +22,7 @@ def api():
         { 'name': 'Barack', 'image': 'barack.jpg' }
     ]
 
-    # Get image from request
+    # Get image from request    
     result = data['data']
     b = bytes(result, 'utf-8')
     image = b[b.find(b'/9'):]
@@ -39,8 +40,14 @@ def api():
         known_img = face_recognition.load_image_file(known_img_filepath)
         unknown_img = face_recognition.load_image_file(unknown_img_filepath)
 
-        known_encoding = face_recognition.face_encodings(known_img)[0]
-        unknown_encoding = face_recognition.face_encodings(unknown_img)[0]
+        known_encoding = face_recognition.face_encodings(known_img)
+        unknown_encoding = face_recognition.face_encodings(unknown_img)
+
+        if len(known_encoding) == 0 or len(unknown_encoding) == 0:
+            continue
+        
+        known_encoding = known_encoding[0]
+        unknown_encoding = unknown_encoding[0]
 
         results = face_recognition.compare_faces([known_encoding], unknown_encoding)
         if len(results) > 0:
