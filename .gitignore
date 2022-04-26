@@ -1,2 +1,9 @@
+# Cache
 __pycache__/
+
+# Virtual environment
 env/
+
+# Don't store pictures of faces
+known_faces/*
+unknown_faces/*
