@@ -1,0 +1,9 @@
+import os
+
+"""Parameter Tuning"""
+ALPHA = 0.5
+THRESHOLD = 0.5
+IMAGE_SIZE= 112
+NUM_EPOCHS= 15
+STEPS_PER_EPOCH= 1
+BATCH_SIZE= 32
