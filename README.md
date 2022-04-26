@@ -5,8 +5,8 @@ Face recognition using the Flask and the [face_recognition](https://github.com/a
 ## Getting started
 
 ```console
-$ make create-env     # Create virtual environment
-$ make activate-env   # Source virtual environment
-$ make install        # Install dependencies
-$ make run            # Start in dev mode (not production build)
+$ python -m venv env        # Create virtual environment
+$ source env/bin/activate   # Source virtual environment
+$ make install              # Install dependencies
+$ make run                  # Start in dev mode (not production build)
 ```
